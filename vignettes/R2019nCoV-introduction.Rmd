@@ -1,0 +1,54 @@
+---
+title: "R2019nCoV-introduction"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{R2019nCoV-introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+#Introduction
+
+Since December 2019, Wuhan City, Hubei Province has continued to carry out surveillance of influenza and related diseases, and found multiple cases of viral pneumonia, all of which were diagnosed with viral pneumonia / pulmonary infection.
+On January 12, 2020, the World Health Organization officially named the new coronavirus causing the pneumonia epidemic in Wuhan as "2019 New Coronavirus (2019-nCoV)".
+The current epidemic situation is very serious, here we developed an R package for 2019-nCoV analysis(Real-time monitoring and Visualization).
+
+#Usage
+
+Load package.
+
+```{r load-package}
+library(R2019nCoV)
+```
+
+We start with creating a R2019-nCoV object, so we can check real-time monitoring numbers of the 2019-nCoV virus.
+Plus, you need to keep your device online.
+
+```{r}
+x <- get_2019nCoV()
+```
+
+Then we can get the data.frame of detailed statistical numbers of every provinces of China.
+
+```{r eval=FALSE}
+df <- getDataFrame(x)
+```
+
+Visualization the real-time monitoring map of the 2019-nCoV virus.
+
+```{r warning=FALSE}
+map <- getMap(x)
+map
+```
+
+Plus, you can get the gene sequence of 2019-nCoV virus from GenBank.
+
+```{r}
+Seq <- getSeq()
+```
